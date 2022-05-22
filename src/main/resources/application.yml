@@ -1,0 +1,37 @@
+logging:
+  level:
+    org:
+      springframework: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+  datasource:
+    username: root
+    password: Fnst*1234
+    url: jdbc:mysql://localhost/test
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
